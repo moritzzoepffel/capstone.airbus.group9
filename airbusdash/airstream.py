@@ -613,6 +613,15 @@ def main():
                 line_width=0,
             )
 
+            pred_fig.update_layout(
+                title="Predictions",
+                width=600,
+                height=400,
+                legend=dict(
+                    orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1
+                ),
+            )
+
             st.plotly_chart(pred_fig)
 
             st.write(concatted_dataset)
