@@ -416,9 +416,9 @@ def main():
                 fig6.add_trace(
                     go.Scatter(
                         x=processed_df.UTC_TIME,
-                        y=processed_df.TOTAL_FOB_BY_QTY,
+                        y=processed_df.VALUE_FOB_BY_FUEL_USED,
                         mode="lines",
-                        name="Total FOB by Tank QTY",
+                        name="Total FOB by Fuel Used",
                     )
                 )
                 fig6.update_layout(
@@ -436,21 +436,14 @@ def main():
                 fig8.add_trace(
                     go.Scatter(
                         x=processed_df.UTC_TIME,
-                        y=processed_df.VALUE_FOB_MISSING,
+                        y=processed_df.VALUE_FOB_MISSING_BY_QTY,
                         mode="lines",
                         name="Value FOB Consumption",
                     )
                 )
-                fig8.add_trace(
-                    go.Scatter(
-                        x=processed_df.UTC_TIME,
-                        y=processed_df.TOTAL_FUEL_USED,
-                        mode="lines",
-                        name="Total Fuel Used by Engines",
-                    )
-                )
+
                 fig8.update_layout(
-                    title=f"Value FOB Consumption vs Total Fuel Used by Engines",
+                    title=f"Value FOB Missing by Qty",
                     width=600,
                     height=400,
                     legend=dict(
@@ -593,6 +586,15 @@ def main():
                     y=concatted_dataset.VALUE_FOB,
                     mode="lines",
                     name="VALUE_FOB",
+                )
+            )
+
+            pred_fig.add_trace(
+                go.Scatter(
+                    x=concatted_dataset.UTC_TIME,
+                    y=concatted_dataset.VALUE_FOB_BY_FUEL_USED,
+                    mode="lines",
+                    name="VALUE_FOB_BY_FUEL_USED",
                 )
             )
 
